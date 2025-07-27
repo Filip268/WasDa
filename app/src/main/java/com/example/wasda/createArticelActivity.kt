@@ -1,8 +1,9 @@
 package com.example.wasda
 
-import Artikel
+
 import ArtikelInsert
 import Fach
+import FachOrtRelation
 import Kategorie
 import Ort
 import android.app.DatePickerDialog
@@ -13,10 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.int
 import java.util.*
-import kotlinx.serialization.json.jsonPrimitive
+
 
 class CreateArtikelActivity : AppCompatActivity() {
 
@@ -37,7 +36,6 @@ class CreateArtikelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_item)
-
 
         val editName = findViewById<EditText>(R.id.editName)
         val editDate = findViewById<EditText>(R.id.editDate)
@@ -62,7 +60,6 @@ class CreateArtikelActivity : AppCompatActivity() {
             datePicker.show()
         }
 
-
         ladeDaten()
 
         btnSave.setOnClickListener {
@@ -77,25 +74,34 @@ class CreateArtikelActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val artikel = ArtikelInsert(name, datum, gewählteKategorieId!!.toInt())
-
-                    val inserted = supabase.from("artikel").insert(artikel) {
-                    }.decodeSingle<JsonObject>()
-                    val artikelId = inserted["id"]?.jsonPrimitive?.int
-
-                    if (artikelId != null) {
-                        supabase.from("ort_fach").insert(
-                            mapOf(
-                                "artikel_id" to artikelId,
-                                "ort_id" to gewählterOrtId!!,
-                                "fach_id" to gewählterFachId!!
-                            )
-                        )
-                        Toast.makeText(this@CreateArtikelActivity, "Gespeichert!", Toast.LENGTH_SHORT).show()
-                        finish()
-                    } else {
-                        Toast.makeText(this@CreateArtikelActivity, "Fehler: Artikel-ID fehlt!", Toast.LENGTH_LONG).show()
+                    val alleOrtFach = supabase.from("ort_fach").select().decodeList<FachOrtRelation>()
+                    val ortFachList = alleOrtFach.filter {
+                        it.ort_id == gewählterOrtId!!.toInt() && it.fach_id == gewählterFachId!!.toInt()
                     }
+
+                    val ortFachId: Int = if (ortFachList.isEmpty()) {
+                        val insertedOrtFach = supabase.from("ort_fach").insert(
+                            mapOf(
+                                "ort_id" to gewählterOrtId!!.toInt(),
+                                "fach_id" to gewählterFachId!!.toInt()
+                            )
+                        ).decodeSingle<FachOrtRelation>()
+                        insertedOrtFach.id
+                    } else {
+                        ortFachList[0].id
+                    }
+
+                    val artikelInsert = ArtikelInsert(
+                        name = name,
+                        ablaufdatum = datum,
+                        kategorie_id = gewählteKategorieId!!.toInt(),
+                        ort_fach = ortFachId
+                    )
+
+                    supabase.from("artikel").insert(artikelInsert)
+
+                    Toast.makeText(this@CreateArtikelActivity, "Gespeichert!", Toast.LENGTH_SHORT).show()
+                    finish()
 
                 } catch (e: Exception) {
                     Toast.makeText(this@CreateArtikelActivity, "Fehler: ${e.message}", Toast.LENGTH_LONG).show()
@@ -103,12 +109,20 @@ class CreateArtikelActivity : AppCompatActivity() {
             }
         }
 
+
+
+
+
+
+
+
         btnCancel.setOnClickListener {
             finish()
         }
     }
 
-    // 🔽 Jetzt außerhalb von onCreate!
+
+
     private fun ladeDaten() {
         lifecycleScope.launch {
             try {
@@ -158,4 +172,5 @@ class CreateArtikelActivity : AppCompatActivity() {
             }
         }
     }
+    
 }
