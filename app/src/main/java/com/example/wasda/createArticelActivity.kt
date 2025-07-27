@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import io.github.jan.supabase.postgrest.from
 import kotlinx.coroutines.launch
 import java.util.*
+import android.content.Intent
 
 
 class CreateArtikelActivity : AppCompatActivity() {
@@ -35,7 +36,7 @@ class CreateArtikelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_item)
+        setContentView(R.layout.activity_create_article)
 
         val editName = findViewById<EditText>(R.id.editName)
         val editDate = findViewById<EditText>(R.id.editDate)
@@ -44,6 +45,14 @@ class CreateArtikelActivity : AppCompatActivity() {
         spinnerKategorie = findViewById(R.id.spinnerKategorie)
         val btnSave = findViewById<Button>(R.id.btnSave)
         val btnCancel = findViewById<Button>(R.id.btnCancel)
+
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         editDate.setOnClickListener {
             val calendar = Calendar.getInstance()
@@ -111,15 +120,12 @@ class CreateArtikelActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
         btnCancel.setOnClickListener {
             finish()
         }
     }
+
+
 
 
 

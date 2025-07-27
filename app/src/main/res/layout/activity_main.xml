@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,36 +21,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_margin="0dp"
-                android:background="@android:color/transparent"
-                android:src="@android:drawable/ic_media_previous"
-                android:contentDescription="Zurück" />
-
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="251dp"
-                android:layout_below="@id/backButton"
                 android:layout_marginTop="1dp">
 
                 <ImageView
                     android:id="@+id/headerImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
-<!--                    android:src="@drawable/Lager2"-->
-<!--                    android:contentDescription="Lagerhalle" />-->
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/titleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dein Lager"
-                    android:textSize="60sp"
+                    android:text="Lagerverwaltung"
+                    android:textSize="36sp"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"
                     android:layout_gravity="center" />
@@ -63,52 +50,39 @@
             android:layout_height="wrap_content"
             android:text="Neuer Artikel"
             android:layout_marginTop="16dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
+            android:textColor="@android:color/black" />
 
         <Button
-            android:id="@+id/btnDrinks"
+            android:id="@+id/btnCreateOrt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Getränke"
+            android:text="Ort anlegen"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
+            android:textColor="@android:color/black" />
 
         <Button
-            android:id="@+id/btnFood"
+            android:id="@+id/btnCreateFach"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Essen"
+            android:text="Fach anlegen"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
+            android:textColor="@android:color/black" />
 
         <Button
-            android:id="@+id/btnElectronics"
+            android:id="@+id/btnCreateKategorie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Elektronik"
+            android:text="Kategorie anlegen"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
+            android:textColor="@android:color/black" />
 
         <Button
-            android:id="@+id/btnTools"
+            android:id="@+id/btnVerknuepfen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Werkzeuge"
+            android:text="Lagerverwaltung"
             android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
+            android:textColor="@android:color/black" />
 
-        <Button
-            android:id="@+id/btnCleaning"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Putzmittel"
-            android:layout_marginTop="8dp"
-            android:textColor="@android:color/black"/>
-<!--            android:background="@drawable/rounded_button" />-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

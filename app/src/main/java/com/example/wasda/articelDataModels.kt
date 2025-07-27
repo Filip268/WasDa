@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 data class Kategorie(val id: Int, val kategorie: String)
 
 @Serializable
-data class Ort(val id: Int, val name: String)
+data class Ort(val id: Int? = null, val name: String)
 
 @Serializable
 data class Fach(val id: Int, val fach_bezeichnung: String)
