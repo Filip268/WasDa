@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         val btnNewItem = findViewById<Button>(R.id.btnNewItem)
         val btnCreateOrt = findViewById<Button>(R.id.btnCreateOrt)
-//        val btnCreateFach = findViewById<Button>(R.id.btnCreateFach)
-//        val btnCreateKategorie = findViewById<Button>(R.id.btnCreateKategorie)
+        val btnCreateFach = findViewById<Button>(R.id.btnCreateFach)
+        val btnCreateKategorie = findViewById<Button>(R.id.btnCreateKategorie)
 //        val btnVerknuepfen = findViewById<Button>(R.id.btnVerknuepfen)
 
         btnNewItem.setOnClickListener {
@@ -34,16 +34,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CreateOrtActivity::class.java))
         }
 
-//        btnCreateFach.setOnClickListener {
-//            startActivity(Intent(this, CreateFachActivity::class.java))
-//        }
-//
-//        btnCreateKategorie.setOnClickListener {
-//            startActivity(Intent(this, CreateKategorieActivity::class.java))
-//        }
-//
-//        btnVerknuepfen.setOnClickListener {
-//            startActivity(Intent(this, VerknuepfungActivity::class.java))
+        btnCreateFach.setOnClickListener {
+            startActivity(Intent(this, CreateFachActivity::class.java))
+        }
+
+        btnCreateKategorie.setOnClickListener {
+            startActivity(Intent(this, CreateKategorieActivity::class.java))
+        }
+
+//        btnCreateLagerverwaltung.setOnClickListener {
+//            startActivity(Intent(this, CreateLagerverwaltungActivity::class.java))
 //        }
     }
 }

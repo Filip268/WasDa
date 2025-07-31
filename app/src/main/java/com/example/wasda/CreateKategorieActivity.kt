@@ -19,6 +19,12 @@ class CreateKategorieActivity : AppCompatActivity() {
         val btnSpeichern = findViewById<Button>(R.id.btnSave)
         val btnAbbrechen = findViewById<Button>(R.id.btnCancel)
 
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
+            finish()
+        }
+
         btnSpeichern.setOnClickListener {
             val kategorieName = editKategorieName.text.toString().trim()
 

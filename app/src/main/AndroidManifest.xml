@@ -24,8 +24,8 @@
         </activity>
         <activity android:name=".CreateArtikelActivity" />
         <activity android:name=".CreateOrtActivity" />
-        <!--        <activity android:name=".CreateFachActivity" />-->
-        <!--        <activity android:name=".CreateKategorieActivity" />-->
-        <!--        <activity android:name=".VerknuepfungActivity" />-->
+        <activity android:name=".CreateFachActivity" />
+        <activity android:name=".CreateKategorieActivity" />
+        <activity android:name=".CreateLagerverwaltungActivity" />
     </application>
 </manifest>
