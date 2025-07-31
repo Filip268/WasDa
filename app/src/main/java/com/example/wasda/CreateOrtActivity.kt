@@ -1,5 +1,6 @@
 package com.example.wasda
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,13 @@ class CreateOrtActivity : AppCompatActivity() {
         val editOrtName = findViewById<EditText>(R.id.editOrtName)
         val btnSpeichern = findViewById<Button>(R.id.btnSave)
         val btnAbbrechen = findViewById<Button>(R.id.btnCancel)
+
+        val backButton = findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         btnSpeichern.setOnClickListener {
             val ortName = editOrtName.text.toString().trim()
