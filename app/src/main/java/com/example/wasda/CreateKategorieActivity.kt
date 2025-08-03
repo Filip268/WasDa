@@ -13,7 +13,7 @@ class CreateKategorieActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_kategorie) // Das zugehörige Layout!
+        setContentView(R.layout.activity_create_kategorie)
 
         val editKategorieName = findViewById<EditText>(R.id.editKategorieName)
         val btnSpeichern = findViewById<Button>(R.id.btnSave)
@@ -35,7 +35,7 @@ class CreateKategorieActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val kategorie = mapOf("name" to kategorieName)
+                    val kategorie = mapOf("kategorie" to kategorieName)
                     supabase.from("kategorie").insert(kategorie)
                     Toast.makeText(this@CreateKategorieActivity, "Kategorie gespeichert", Toast.LENGTH_SHORT).show()
                     finish()

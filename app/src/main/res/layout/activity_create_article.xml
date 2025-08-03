@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Titel + Zurückbutton -->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                 android:layout_centerInParent="true" />
         </RelativeLayout>
 
-        <!-- Name -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             android:background="#f0f0f0" />
 
 
-        <!-- Ablaufdatum -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:background="#f0f0f0"
             android:padding="10dp" />
 
-        <!-- Anzahl -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -158,4 +158,3 @@
     </LinearLayout>
 </ScrollView>
 
-<!--Umlaute-->

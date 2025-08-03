@@ -27,5 +27,6 @@
         <activity android:name=".CreateFachActivity" />
         <activity android:name=".CreateKategorieActivity" />
         <activity android:name=".CreateLagerverwaltungActivity" />
+        <activity android:name=".ViewArticlesActivity" />
     </application>
 </manifest>

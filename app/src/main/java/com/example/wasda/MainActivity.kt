@@ -21,10 +21,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val btnNewItem = findViewById<Button>(R.id.btnNewItem)
+        val btnViewArticles = findViewById<Button>(R.id.btnViewArticles)
         val btnCreateOrt = findViewById<Button>(R.id.btnCreateOrt)
         val btnCreateFach = findViewById<Button>(R.id.btnCreateFach)
         val btnCreateKategorie = findViewById<Button>(R.id.btnCreateKategorie)
-//        val btnVerknuepfen = findViewById<Button>(R.id.btnVerknuepfen)
+        val btnCreateLagerverwaltung = findViewById<Button>(R.id.btnVerknuepfen)
 
         btnNewItem.setOnClickListener {
             startActivity(Intent(this, CreateArtikelActivity::class.java))
@@ -42,8 +43,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CreateKategorieActivity::class.java))
         }
 
-//        btnCreateLagerverwaltung.setOnClickListener {
-//            startActivity(Intent(this, CreateLagerverwaltungActivity::class.java))
-//        }
+        btnCreateLagerverwaltung.setOnClickListener {
+            startActivity(Intent(this, CreateLagerverwaltungActivity::class.java))
+        }
+
+        btnViewArticles.setOnClickListener {
+            startActivity(Intent(this, ViewArticlesActivity::class.java))
+        }
     }
 }

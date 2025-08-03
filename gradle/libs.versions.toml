@@ -1,5 +1,5 @@
 [versions]
-agp = "8.11.1"
+agp = "8.12.0"
 bomVersion = "3.2.2"
 kotlin = "2.2.0"
 coreKtx = "1.16.0"
@@ -12,10 +12,12 @@ ktorClientAndroidVersion = "3.2.2"
 material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
+supabaseKt = "<latest-version>"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+ktor-client-android_z = { module = "io.ktor:ktor-client-android)" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -29,6 +31,7 @@ ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "k
 
 
 supabase-bom = { module = "io.github.jan-tennert.supabase:bom", version.ref = "bomVersion" }
+supabase-kt = { module = "io.github.jan:supabase-kt", version.ref = "supabaseKt" }
 supabase-postgrest = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
 supabase-realtime = { module = "io.github.jan-tennert.supabase:realtime-kt" }
 

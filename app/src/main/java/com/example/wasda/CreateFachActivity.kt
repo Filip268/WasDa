@@ -14,7 +14,7 @@ class CreateFachActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_fach) // Das zugehörige Layout!
+        setContentView(R.layout.activity_create_fach)
 
         val editFachName = findViewById<EditText>(R.id.editFachName)
         val btnSpeichern = findViewById<Button>(R.id.btnSave)
@@ -37,7 +37,7 @@ class CreateFachActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 try {
-                    val fach = mapOf("name" to fachName)
+                    val fach = mapOf("fach_bezeichnung" to fachName)
                     supabase.from("fach").insert(fach)
                     Toast.makeText(this@CreateFachActivity, "Fach gespeichert", Toast.LENGTH_SHORT).show()
                     finish()
